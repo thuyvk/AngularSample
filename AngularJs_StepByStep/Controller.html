@@ -9,11 +9,17 @@
 <body ng-app="myApp">
     <div ng-controller="myController">
         {{message}}
+        <br />
+        <button ng-click="showMsg('Hello World and Join Smirt too!')">Click Me!</button>
     </div>
     <script>
         var ngApp = angular.module('myApp', []);
         ngApp.controller('myController', function ($scope) {
             $scope.message = 'Hello Join Smirt';
+
+            $scope.showMsg = function (msg) {
+                alert(msg);
+            };
         });
     </script>
 </body>
