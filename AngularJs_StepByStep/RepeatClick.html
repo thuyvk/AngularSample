@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="Scripts/angular.js"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>Likes</td>
+                <td>Dislikes</td>
+                <td>Action</td>
+            </tr>
+            <tr ng-repeat="item in programlanguages">
+                <td>{{item.name}}</td>
+                <td>{{item.like}}</td>
+                <td>{{item.dislike}}</td>
+                <td>
+                    <button ng-click="LikeItem(item)">Like</button>
+                    &nbsp;
+                    <button ng-click="DisLikeItem(item)">Dislike</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.controller('myController', ['$scope', function ($scope) {
+            var programlanguages = [
+                { name: "C#", like: 0, dislike: 0 },
+                { name: "Java", like: 0, dislike: 0 },
+                { name: "Angular JS", like: 0, dislike: 0 },
+                { name: "Python", like: 0, dislike: 0 }
+            ];
+            $scope.programlanguages = programlanguages;
+
+            $scope.LikeItem = function (value) {
+                value.like = value.like + 1;
+            }
+
+            $scope.DisLikeItem = function (value) {
+                value.dislike = value.dislike + 1;
+            }
+        }]);
+    </script>
+</body>
+</html>

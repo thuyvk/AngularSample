@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/RepeatController.js"></script>
+</head>
+<body ng-app="app">
+    <div ng-controller="RepeatController">
+        {{message}}
+        <ul>
+            <li ng-repeat="item in employees">
+                {{item.name}}, {{item.age}}, {{item.address}}
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
