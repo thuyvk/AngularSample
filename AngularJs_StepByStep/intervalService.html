@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.js"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        <h1>{{message}}</h1>
+        <p>
+            {{counter}}
+        </p>
+        <button ng-click="CancelInterval()">Cancel Interval</button>
+    </div>
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.controller('myController', ['$scope', '$interval', function ($scope, $interval) {
+            $scope.message = "Hello $interval";
+            $scope.counter = 0;
+            var promise = $interval(function () {
+                $scope.counter = $scope.counter + 1;
+            }, 1000);
+
+            $scope.CancelInterval = function () {
+                $interval.cancel(promise);
+                $scope.message = "Cancelled!";
+            };
+        }]);
+    </script>
+</body>
+</html>

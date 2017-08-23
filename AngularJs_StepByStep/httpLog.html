@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.js"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        <h1>{{message}}</h1>
+    </div>
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.controller('myController', ['$scope', '$log', function ($scope, $log) {
+            $scope.message = "Hello $log";
+            $log.log('This is log');
+            $log.error('This is error');
+            $log.info('This is info');
+            $log.warn('This is warn');
+            $log.debug('This is debugr');
+        }]);
+    </script>
+</body>
+</html>
