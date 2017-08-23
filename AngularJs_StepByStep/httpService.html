@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.js"></script>
+</head>
+<body ng-app="myApp">
+    <div ng-controller="myController">
+        <h1 ng-bind="message"></h1>
+        <p>
+            {{data}}
+        </p>
+        <p>
+            {{status}}
+        </p>
+        <p>
+            {{statusText}}
+        </p>
+        <p>
+            {{header}}
+        </p>
+        <p>
+            {{config}}
+        </p>
+    </div>
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.controller('myController', ['$scope', '$http', function ($scope, $http) {
+            $scope.message = "Hello $http Service";
+
+            var promise = $http.get('http://travelapi.bluejaypos.vn/api/suggest/b06d7c44847ed72e7ad9e2698ddb78b1066d70cac797b9d77e36d693660b1db9');
+            promise.then(function (response) {
+                $scope.data = response.data;
+                $scope.status = response.status;
+                $scope.statusText = response.statusText;
+                $scope.headers = response.headers;
+                $scope.config = response.config;
+            });
+        }]);
+    </script>
+</body>
+</html>
