@@ -67,11 +67,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Events.html" />
+    <Content Include="httpLog.html" />
+    <Content Include="httpService.html" />
+    <Content Include="intervalService.html" />
     <Content Include="ngRepeat.html" />
     <Content Include="packages.config" />
     <Content Include="RepeatClick.html" />
     <Content Include="Scope.html" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="windowService.html" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
