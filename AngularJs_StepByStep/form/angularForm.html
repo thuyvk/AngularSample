@@ -1,15 +1,42 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
     <title></title>
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
     <script src="../Scripts/angular.js"></script>
 </head>
+
 <body ng-app="myApp">
     <div ng-controller="myFormController">
-        <h1>Hello {{message}}</h1>
-    </div>
-    <script src="../Scripts/app.js"></script>
-    <script src="myFormController.js"></script>
+        <h1>{{message}}</h1>
+        <hr/>
+        <form ng-submit="SubmitForm()">
+            <label>First Name:</label><br>
+            <input type="text" id="firtName" ng-model="student.firstName"><br>
+            <label>Last Name:</label><br>
+            <input type="text" id="lastName" ng-model="student.lastName"><br>
+            <label>DoB:</label><br>
+            <input type="date" id="dob" ng-model="student.dob"><br>
+            <label>Gender</label><br>
+            <select id="gender" ng-model="student.gender">
+                <option value="male">Male</option>
+                <option value="Female">Female</option>
+            </select> <br>
+            <label>Traning Type:</label><br>
+            <label><input type="radio" value="online" name="training" ng-model="student.traningType"/>Online</label>
+            <label><input type="radio" value="outsite" name="training" ng-model="student.traningType"/>OutSite</label>
+            <br>
+            <label>Subject:</label><br>
+            <label><input type="checkbox" ng-model="student.maths"/>Maths</label>
+            <label><input type="checkbox" ng-model="student.physics"/>Physics</label>
+            <label><input type="checkbox" ng-model="student.chemistry"/>Chemistry</label>
+            <br>
+            <input type="submit" name="Submit"/>
+            <button type="button" ng-click="ResetForm()">Reset</>
+        </form>
+        <script src="../Scripts/app.js"></script>
+        <script src="myFormController.js"></script>
 </body>
+
 </html>
