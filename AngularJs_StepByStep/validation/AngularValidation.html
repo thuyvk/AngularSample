@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="../Scripts/angular.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="myValidationController">
+        <h1>Hello {{message}}</h1>
+        <form name="ValidationForm" novalidate>
+            <label>First Name</label><br>
+            <input type="text" ng-model="student.firstName" ng-required="true"/>
+            <span>First name is required</span>
+        </form>
+    </div>
+    <script src="../Scripts/app.js"></script>
+    <script src="myValidationController.js"></script>
+</body>
+
+</html>
